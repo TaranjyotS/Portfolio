@@ -5,6 +5,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Badge } from "./ui/badge";
 import { useToast } from "../hooks/use-toast";
+import { useContactForm } from "../hooks/useContactForm";
 import { 
   Mail, 
   Phone, 
@@ -20,19 +21,18 @@ import {
 
 const Contact = () => {
   const { toast } = useToast();
+  const { submitForm, loading: isSubmitting, error, success } = useContactForm();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
+    
+    try {
+      await submitForm(formData);
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon.",
@@ -40,8 +40,14 @@ const Contact = () => {
       });
       
       setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 2000);
+    } catch (err) {
+      toast({
+        title: "Failed to send message",
+        description: error || "Please try again later.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    }
   };
 
   const handleChange = (e) => {
@@ -124,10 +130,24 @@ const Contact = () => {
                   </h2>
                 </div>
 
+                {error && (
+                  <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg">
+                    <p className="text-red-700 dark:text-red-300 text-sm">{error}</p>
+                  </div>
+                )}
+
+                {success && (
+                  <div className="mb-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg">
+                    <p className="text-green-700 dark:text-green-300 text-sm">
+                      Message sent successfully! I'll get back to you soon.
+                    </p>
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Your Name
+                      Your Name *
                     </label>
                     <Input
                       id="name"
@@ -138,12 +158,13 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="John Doe"
                       className="transition-all duration-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Email Address
+                      Email Address *
                     </label>
                     <Input
                       id="email"
@@ -154,12 +175,13 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="john@example.com"
                       className="transition-all duration-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Your Message
+                      Your Message *
                     </label>
                     <Textarea
                       id="message"
@@ -170,6 +192,7 @@ const Contact = () => {
                       placeholder="Tell me about your project or just say hello!"
                       rows={6}
                       className="transition-all duration-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+                      disabled={isSubmitting}
                     />
                   </div>
 
