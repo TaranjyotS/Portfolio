@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ChevronDown, Github, Linkedin, Mail, ArrowRight, Sparkles } from "lucide-react";
+import { useProjects } from "../hooks/useProjects";
 
 const Home = () => {
+  const { projects: featuredProjects, loading } = useProjects(true);
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById("projects-preview");
     projectsSection?.scrollIntoView({ behavior: "smooth" });
@@ -113,33 +116,65 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
-              >
-                <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-600 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-                  <div className="absolute bottom-4 left-4 text-white font-semibold text-lg">
-                    Project {i}
+          {loading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 animate-pulse"
+                >
+                  <div className="h-48 bg-gray-300 dark:bg-gray-600"></div>
+                  <div className="p-6">
+                    <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded mb-2"></div>
+                    <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
+                    <div className="flex gap-2">
+                      <div className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                      <div className="h-6 w-20 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                    </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Amazing Project {i}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    A brief description of this incredible project and its impact.
-                  </p>
-                  <div className="flex gap-2">
-                    <Badge variant="secondary" className="text-xs">React</Badge>
-                    <Badge variant="secondary" className="text-xs">Node.js</Badge>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProjects.slice(0, 3).map((project) => (
+                <div
+                  key={project.id}
+                  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
+                >
+                  <div 
+                    className="h-48 bg-cover bg-center relative overflow-hidden"
+                    style={{ backgroundImage: `url(${project.image})` }}
+                  >
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    <div className="absolute bottom-4 left-4 text-white font-semibold text-lg">
+                      {project.title}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      {project.technologies.slice(0, 2).map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 2 && (
+                        <Badge variant="secondary" className="text-xs">
+                          +{project.technologies.length - 2}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           <div className="text-center mt-12">
             <Link to="/projects">
