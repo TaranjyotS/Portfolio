@@ -1,10 +1,14 @@
 import React from "react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
-import { mockSkills, mockBio } from "../data/mockData";
+import { useSkills } from "../hooks/useSkills";
+import { useBiography } from "../hooks/useBiography";
 import { Code, Database, Server, Smartphone, Cloud, User, Sparkles } from "lucide-react";
 
 const About = () => {
+  const { skills, loading: skillsLoading } = useSkills();
+  const { biography, loading: bioLoading } = useBiography();
+
   const skillIcons = {
     Frontend: <Code className="h-6 w-6" />,
     Backend: <Server className="h-6 w-6" />,
@@ -43,13 +47,21 @@ const About = () => {
                     Who I Am
                   </h2>
                 </div>
-                <div className="prose prose-lg dark:prose-invert max-w-none">
-                  {mockBio.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                {bioLoading ? (
+                  <div className="space-y-4">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="prose prose-lg dark:prose-invert max-w-none">
+                    {biography?.content.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -88,36 +100,59 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockSkills.map((skillCategory, index) => (
-              <Card
-                key={skillCategory.category}
-                className="group bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white mr-3 group-hover:scale-110 transition-transform duration-200">
-                      {skillIcons[skillCategory.category]}
+          {skillsLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Card
+                  key={i}
+                  className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 shadow-lg animate-pulse"
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-lg mr-3"></div>
+                      <div className="h-6 w-24 bg-gray-300 dark:bg-gray-600 rounded"></div>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {skillCategory.category}
-                    </h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {skillCategory.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-default"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    <div className="space-y-2">
+                      {[1, 2, 3].map((j) => (
+                        <div key={j} className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skills.map((skillCategory, index) => (
+                <Card
+                  key={skillCategory.category}
+                  className="group bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white mr-3 group-hover:scale-110 transition-transform duration-200">
+                        {skillIcons[skillCategory.category]}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        {skillCategory.category}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {skillCategory.skills.map((skill, skillIndex) => (
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-default"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Fun Facts Section */}
