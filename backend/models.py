@@ -46,7 +46,7 @@ class ContactMessage(BaseModel):
 
 class ContactMessageCreate(BaseModel):
     name: str = Field(..., min_length=1, max_length=100)
-    email: str = Field(..., regex=r'^[^@]+@[^@]+\.[^@]+$')
+    email: str = Field(..., pattern=r'^[^@]+@[^@]+\.[^@]+$')
     message: str = Field(..., min_length=10, max_length=1000)
 
 class Skill(BaseModel):
