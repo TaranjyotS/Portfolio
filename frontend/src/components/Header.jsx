@@ -57,6 +57,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
+              data-testid="theme-toggle"
               className="hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors"
             >
               {theme === "light" ? (
