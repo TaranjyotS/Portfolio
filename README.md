@@ -12,7 +12,7 @@ A modern, responsive portfolio website showcasing my professional journey, skill
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [Portfolio Website](https://69147dac-f1ab-4d0e-8720-e73a0614f84e.lovableproject.com)
+Visit the live portfolio: [Portfolio Website](https://portfolio-taranjyot-singh.vercel.app/)
 
 ## 🛠️ Tech Stack
 
