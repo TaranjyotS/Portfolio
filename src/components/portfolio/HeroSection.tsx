@@ -1,4 +1,4 @@
-import { Code, User, Github, Linkedin } from "lucide-react";
+import { Code, User, Github, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
@@ -15,6 +15,7 @@ const HeroSection = () => {
   ];
   
   const [currentIntro, setCurrentIntro] = useState(0);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   
   useEffect(() => {
     let currentIndex = 0;
@@ -64,28 +65,47 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Icon quartet positioned on the right side */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-50 animate-fade-in">
-        <div className="group cursor-pointer" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
-          <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:rotate-12">
-            <User className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
-          </div>
+      {/* Collapsible side panel with toggle button */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+        {/* Toggle button - simplified arrow */}
+        <div 
+          className={`cursor-pointer group transition-all duration-300 ${
+            isCollapsed ? 'absolute right-4 top-1/2 -translate-y-1/2' : 'absolute -left-8 top-1/2 -translate-y-1/2'
+          }`}
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
+          {isCollapsed ? (
+            <ChevronLeft className="w-6 h-6 text-primary group-hover:text-primary/80 transition-all duration-300 hover:scale-110" />
+          ) : (
+            <ChevronRight className="w-6 h-6 text-primary group-hover:text-primary/80 transition-all duration-300 hover:scale-110" />
+          )}
         </div>
-        <div className="group cursor-pointer" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-          <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:-rotate-12">
-            <Code className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+
+        {/* Icon quartet - completely hidden when collapsed */}
+        {!isCollapsed && (
+          <div className="flex flex-col gap-4 animate-fade-in pr-8">
+            <div className="group cursor-pointer" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:rotate-12">
+                <User className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+              </div>
+            </div>
+            <div className="group cursor-pointer" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:-rotate-12">
+                <Code className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+              </div>
+            </div>
+            <div className="group cursor-pointer" onClick={() => window.open('https://github.com/TaranjyotS', '_blank')}>
+              <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:rotate-12">
+                <Github className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+              </div>
+            </div>
+            <div className="group cursor-pointer" onClick={() => window.open('https://linkedin.com/in/taranjyot-singh-21b97413a', '_blank')}>
+              <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:-rotate-12">
+                <Linkedin className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="group cursor-pointer" onClick={() => window.open('https://github.com/TaranjyotS', '_blank')}>
-          <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:rotate-12">
-            <Github className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
-          </div>
-        </div>
-        <div className="group cursor-pointer" onClick={() => window.open('https://www.linkedin.com/in/taranjyot-singh/', '_blank')}>
-          <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:-rotate-12">
-            <Linkedin className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
-          </div>
-        </div>
+        )}
       </div>
 
       <div className="text-center max-w-4xl mx-auto space-y-12">
