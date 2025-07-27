@@ -99,7 +99,7 @@ const HeroSection = () => {
                 <Github className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
               </div>
             </div>
-            <div className="group cursor-pointer" onClick={() => window.open('https://linkedin.com/in/taranjyot-singh-21b97413a', '_blank')}>
+            <div className="group cursor-pointer" onClick={() => window.open('https://www.linkedin.com/in/taranjyot-singh/', '_blank')}>
               <div className="p-3 rounded-full glassmorphism hover:bg-primary/20 transition-all duration-500 hover:scale-110 hover:-rotate-12">
                 <Linkedin className="w-5 h-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
               </div>
