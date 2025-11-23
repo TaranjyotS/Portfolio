@@ -40,16 +40,11 @@ const AboutSection = () => {
           <Card className="mb-12 bg-card border shadow-card transition-smooth hover-lift">
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-foreground">
-                Experienced Software Engineer with <strong className="text-primary">4+ years of hands-on experience</strong> in 
-                Python development, backend systems, and full-stack web development. Proven track record of building 
-                scalable, production-grade applications leveraging cloud platforms (AWS, Azure), Kubernetes, and CI/CD 
-                automation with Jenkins.
-              </p>
-              <br />
-              <p className="text-lg leading-relaxed text-foreground">
-                Proficient in design patterns, software architecture, functional programming paradigms, and financial 
-                data applications. Demonstrates a passion for innovation, continuous learning, and delivering high-impact 
-                solutions in fast-paced, agile environments.
+                Experienced Software Engineer with <strong className="text-primary">4+ years of hands-on experience</strong> designing and developing
+                scalable backend systems, cloud-native microservices, and production-grade ML/AI workflows. Skilled in Python, FastAPI, Flask, AWS,
+                Docker, Kubernetes, and CI/CD automation with DevSecOps practices. Experienced in LLM evaluation, prompt engineering, and RLHF-based AI
+                training through work with Meta (via Innodata and Outlier). Strong focus on API design, distributed systems, data engineering, and secure
+                software delivery.
               </p>
             </CardContent>
           </Card>

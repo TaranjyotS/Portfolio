@@ -15,7 +15,7 @@ const SkillsSection = () => {
     },
     {
       title: "Cloud & DevOps",
-      skills: ["AWS (S3, EC2)", "Azure", "Docker", "Kubernetes", "Jenkins", "Terraform", "CI/CD", "Linux"],
+      skills: ["AWS (S3, EC2, Lambda)", "Azure", "Docker", "Kubernetes", "Jenkins", "Terraform", "CI/CD", "Linux", "DevSecOps"],
       color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
     },
     {
@@ -25,12 +25,17 @@ const SkillsSection = () => {
     },
     {
       title: "Tools & Technologies",
-      skills: ["Git", "Docker Desktop", "VS Code", "Postman", "Jira", "Grafana", "Airflow", "DataBricks"],
+      skills: ["Git", "Docker Desktop", "VS Code", "Postman", "Jira", "Redis", "Celery", "Grafana", "Airflow", "DataBricks", "Bitbucket"],
       color: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300"
     },
     {
       title: "Concepts & Methodologies",
-      skills: ["OOP", "Data Structures", "Software Architecture", "Agile Development", "ETL Processes", "Microservices"],
+      skills: ["OOP", "Data Structures", "Software Architecture", "Agile Development", "ETL Processes", "Microservices", "Versioning", "Release management", "Product management"],
+      color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300"
+    },
+    {
+      title: "AI/ML & LLM",
+      skills: ["RLHF", "Prompt Engineering", "LLM Evaluation", "Model Fine-tuning", "Data Annotation & Quality", "Embeddings", "OCR", "NLP pipelines"],
       color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300"
     }
   ];

@@ -14,13 +14,28 @@ const ExperienceSection = () => {
 
   const professionalExperiences = [
     {
+      title: "Generative AI Associate",
+      company: "Innodata",
+      location: "Mississauga, ON, Canada",
+      duration: "August 2025 - Present",
+      achievements: [
+        "Performed LLM evaluation, annotation, and prompt-based assessments to improve accuracy, safety, and alignment of Meta’s generative AI and multimodal models.",
+        "Analyzed and graded model outputs for quality, relevance, factual correctness, and policy compliance, contributing to Meta’s RLHF and data-training pipelines.",
+        "Executed high-precision data labeling, categorization, and QA workflows using Meta’s internal platforms while meeting strict productivity and accuracy targets.",
+        "Ensured data privacy, confidentiality, and security by following all Innodata CNDA requirements and Meta’s AI safety policies.",
+        "Collaborated with team leads and QA reviewers to maintain consistent task quality, resolve ambiguities, and meet operational SLAs in a fully remote environment."
+      ],
+      techStack: ["Meta AI tools (SRT, IA, internal annotation systems)", "Microsoft 365 (Teams, Outlook, SharePoint)", "data quality tools", "annotation pipelines", "prompt evaluation frameworks", "data-ops tooling", "Reinforcement Learning from Human Feedback (RLHF) processes", "quality evaluation workflows"]
+    },
+    {
       title: "Software Development Engineer",
       company: "Anuvu",
       location: "Montreal, QC, Canada",
       duration: "June 2022 - May 2024",
       achievements: [
-        "Led the initiative to implement a Jenkins CI/CD pipeline with Jenkins, automating the testing and deployment process of applications on AWS instances as a backend and framework developer in a team of 5.",
-        "Developed modules for data transformation and analysis using SAS, Pandas, and Airflow, ensuring the efficient and effective use of data within our microservices.",
+        "Developed microservices with Python & FastAPI deployed on AWS EC2 using Docker and Kubernetes.",
+        "Led the initiative to implement CI/CD pipelines with Jenkins, automating the testing and deployment process of applications on AWS instances as a backend and framework developer in a team of 5. Also, integrated DevSecOps tools into the pipeline (e.g., Bandit).",
+        "Developed modules for data transformation and optimized high-volume data pipelines and relational queries for performance across large datasets using SAS, Pandas, PostgreSQL and Pydantic.",
         "Contributed significantly to the development, unit testing and integration of Kubernetes and Docker for the orchestration of our 6 scalable microservices, achieving 87% code coverage through extensive unit testing.",
         "Oversaw the official releases for 3 of the live products.",
         "Monitored testing for over 25 games on platforms like PlayCanvas, PixiJs."
@@ -34,6 +49,7 @@ const ExperienceSection = () => {
       duration: "Oct. 2021 - May 2022",
       achievements: [
         "Developed a full-stack Flask-based financial platform handling over a million secure records.",
+        "Worked on financial/analytical data pipelines supporting reporting, insights, and operational workflows.",
         "Integrated backend services with MongoDB, Azure Database, and AWS Lambda for serverless processing.",
         "Collaborated with clients to gather their specific requirements and ensure the application met their needs.",
         "Conducted extensive unit and integration testing using Pytest to ensure application reliability and functionality."
@@ -83,7 +99,7 @@ const ExperienceSection = () => {
         "Conducted quality assurance checks focusing on factuality, contextual relevance, and ethical compliance.",
         "Delivered actionable feedback to improve the overall usability and effectiveness of AI systems."
       ],
-      techStack: ["Python", "TensorFlow", "PyTorch", "Machine Learning", "AI Training", "RLHF", "Natural Language Processing", "Model Optimization", "Quality Assurance", "Prompt Engineering", "Data Analysis", "Research", "Testing"]
+      techStack: ["Python", "TensorFlow", "PyTorch", "Machine Learning", "AI Training", "RLHF", "Natural Language Processing", "Model Optimization", "Quality Assurance", "Prompt Engineering", "Data Analysis", "Research", "Testing", "Logical and analytical reasoning", "Data annotation", "Bias detection and Mitigation", "AI Model error analysis", "Hallucination detection in LLMs"]
     }
   ];
 

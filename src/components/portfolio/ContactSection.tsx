@@ -105,9 +105,9 @@ const ContactSection = () => {
                     className="w-full justify-start border-white/30 text-white hover:bg-white/10"
                     asChild
                   >
-                    <a href="https://docs.google.com/document/d/1rPB8qPq4cd8qqXz5pA1N6Pe8s_tJ-3lj/export?format=pdf" target="_blank" rel="noopener noreferrer">
+                    <a href="https://docs.google.com/document/d/1zhD8uomEnzrEsIKXi-pJmVMbgHmVoly_/export?format=pdf" target="_blank" rel="noopener noreferrer">
                       <Download className="mr-3" size={20} />
-                      Download Resume
+                      Download CV
                     </a>
                   </Button>
                   
