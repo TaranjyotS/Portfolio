@@ -65,16 +65,17 @@ const ProjectsSection = () => {
   
   // Prioritized projects list with excluded repositories filtered out
   const prioritizedProjects = [
-    'face-recognition',
-    'ocr',
-    'pca-for-diagnosis-of-heart-disease',
-    'traffic-management-using-quality-methodologies',
-    'design-improvement-and-quality-control-of-boeing-737-max-aircraft'
+    'MLOps based CI/CD Pipeline',
+    'Face Recognition System',
+    'Optical Character Recognition (OCR) System',
+    'Heart disease diagnosis',
+    'Traffic management System',
+    'Design improvement & Quality control of boeing-737-max aircraft'
   ];
 
   // Filter and sort projects with priority order
   const filteredProjects = githubProjects
-    .filter(repo => !['portfolio', 'TaranjyotS', 'mlops-ci-cd', 'web-server-hacking', 'resume-api'].includes(repo.name))
+    .filter(repo => !['portfolio', 'TaranjyotS', 'web-server-hacking', 'resume-api'].includes(repo.name))
     .sort((a, b) => {
       // Move Bridge project to last
       if (a.name === 'bridge') return 1;
