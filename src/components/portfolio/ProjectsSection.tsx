@@ -65,12 +65,12 @@ const ProjectsSection = () => {
   
   // Prioritized projects list with excluded repositories filtered out
   const prioritizedProjects = [
-    'MLOps based CI/CD Pipeline',
-    'Face Recognition System',
-    'Optical Character Recognition (OCR) System',
-    'Heart disease diagnosis',
-    'Traffic management System',
-    'Design improvement & Quality control of boeing-737-max aircraft'
+    'face-recognition',
+    'ocr',
+    'mlops-ci-cd',
+    'pca-for-diagnosis-of-heart-disease',
+    'traffic-management-using-quality-methodologies',
+    'design-improvement-and-quality-control-of-boeing-737-max-aircraft'
   ];
 
   // Filter and sort projects with priority order
