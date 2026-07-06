@@ -4,15 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const skillCategories = [
   {
     title: "Backend & Platform Engineering",
-    skills: ["Python", "FastAPI", "Flask", "Django", "REST APIs", "Microservices", "Pydantic", "SQLAlchemy", "Celery", "Redis"],
+    skills: ["FastAPI", "Flask", "Django", "REST APIs", "Microservices", "Distributed Systems", "Pydantic", "Celery", "Event-Driven Architecture"],
   },
   {
     title: "AI / GenAI",
-    skills: ["LLMs", "RLHF", "Prompt Engineering", "RAG", "LangChain", "LangGraph", "Agentic AI", "Embeddings", "Vector Databases", "Model Evaluation"],
+    skills: ["LLMs", "RAG", "AI Agents", "Agentic Workflows", "Context Engineering", "Prompt Engineering", "Tool Calling", "Embeddings", "Vector Databases", "RLHF", "Model Evaluation", "LLM Observability", "AI Safety", "NLP", "PyTorch", "TensorFlow"],
   },
   {
     title: "Cloud & DevOps",
-    skills: ["AWS", "EC2", "S3", "Lambda", "Docker", "Kubernetes", "Jenkins", "GitHub Actions", "Terraform", "DevSecOps"],
+    skills: ["AWS (EC2, S3, Lambda)", "Docker", "Kubernetes", "Jenkins", "Terraform", "GitHub Actions", "DevSecOps", "CI/CD"],
   },
   {
     title: "Data Engineering",
@@ -24,7 +24,7 @@ const skillCategories = [
   },
   {
     title: "Software Engineering",
-    skills: ["System Design", "API Design", "Software Architecture", "Testing", "Pytest", "Release Management", "Agile", "Documentation"],
+    skills: ["System Design", "Platform Engineering", "Framework Development", "API Design", "Software Architecture", "Release Management", "Agile Development"],
   },
 ];
 

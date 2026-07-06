@@ -24,11 +24,11 @@ const AboutSection = () => {
               <p className="text-lg leading-relaxed text-foreground">
                 Senior Software Engineer with <strong className="text-primary">5+ years of experience</strong> building cloud-native backend platforms, AI-powered applications, and 
                 scalable distributed systems across Financial Services, Travel Technology, and Generative AI domains. Specialized in Python, 
-                FastAPI, AWS, Kubernetes, Docker, CI/CD, and modern software architecture, with hands-on experience developing 
-                framework-level solutions supporting multiple enterprise products. Proven expertise in LLM evaluation, RLHF, prompt 
-                engineering, backend platform development, data engineering, and production-grade AI systems. Passionate about solving 
-                complex engineering challenges, enabling developer productivity through platform engineering, and delivering secure, scalable 
-                software that drives measurable business impact.
+                FastAPI, AWS, Kubernetes, Docker, CI/CD, and modern software architecture, with hands-on experience developing enterprise 
+                backend platforms and production-ready AI applications. Proven expertise in LLM evaluation, RLHF, prompt engineering, 
+                RAG, AI agent workflows, context engineering, backend platform development, data engineering, and production-grade AI 
+                systems. Passionate about building reliable, scalable AI-powered software that combines strong engineering fundamentals with 
+                modern Generative AI capabilities to solve complex real-world problems.
               </p>
             </CardContent>
           </Card>

@@ -193,7 +193,7 @@ const publications = [
     title: "RDBMS Analysis for Big Data using Elasticsearch",
     journal: "IJRECE, Vol. 7, Issue 2",
     year: "2019",
-    description: "Published research exploring Elasticsearch-based search architectures for Big Data analytics, indexing, sharding, inverted indexes, and scalable full-text search.",
+    description: "Published research exploring Elasticsearch-based search architectures for Big Data analytics, focusing on indexing, sharding, inverted indexes, and full-text search optimization for scalable data platforms.",
     tags: ["Elasticsearch", "Big Data", "RDBMS", "Search Architecture"],
     link: "https://i2or-ijrece.com",
     image: "/projects/research-elasticsearch.svg",
