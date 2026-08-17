@@ -22,13 +22,11 @@ const AboutSection = () => {
           <Card className="mb-12 bg-card border shadow-card transition-smooth hover-lift">
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-foreground">
-                Senior Software Engineer with <strong className="text-primary">5+ years of experience</strong> building cloud-native backend platforms, AI-powered applications, and 
-                scalable distributed systems across Financial Services, Travel Technology, and Generative AI domains. Specialized in Python, 
-                FastAPI, AWS, Kubernetes, Docker, CI/CD, and modern software architecture, with hands-on experience developing enterprise 
-                backend platforms and production-ready AI applications. Proven expertise in LLM evaluation, RLHF, prompt engineering, 
-                RAG, AI agent workflows, context engineering, backend platform development, data engineering, and production-grade AI 
-                systems. Passionate about building reliable, scalable AI-powered software that combines strong engineering fundamentals with 
-                modern Generative AI capabilities to solve complex real-world problems.
+                Senior Software Engineer with <strong className="text-primary">5+ years of experience</strong> building cloud-native backend platforms, 
+                distributed systems and production-oriented AI applications across Financial Services, Travel Technology, Aviation and Generative AI. 
+                Specialized in Python, FastAPI, AWS, Docker, Kubernetes, CI/CD, and scalable software architecture, with experience across LLM evaluation, 
+                RAG, agentic AI workflows, prompt engineering, data engineering and AI reliability. Strong background delivering reusable enterprise backend 
+                services and cloud-native platforms with an emphasis on scalability, testing, security and production readiness.
               </p>
             </CardContent>
           </Card>
