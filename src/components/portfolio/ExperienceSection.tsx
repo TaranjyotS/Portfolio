@@ -5,7 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const experiences = [
+type Experience = {
+  title: string;
+  company: string;
+  domain: string;
+  location: string;
+  duration: string;
+  highlights: string[];
+  skills: string[];
+};
+
+const experiences: Experience[] = [
   {
     title: "Generative AI Associate",
     company: "Innodata",
@@ -19,7 +29,7 @@ const experiences = [
       "Supported AI quality monitoring and pre-deployment validation by assessing prompt strategies, retrieval-grounded responses, model outputs and production failure scenarios with QA and engineering teams.",
       "Used ChatGPT, Claude, Gemini, Codex, and Ollama for prompt experimentation, model comparison, structured-output validation, AI-assisted debugging and evaluation of reasoning and tool-use behavior.",
       "Collaborated with engineering, QA, and review teams to resolve ambiguous cases, maintain evaluation consistency and meet operational SLAs in a distributed environment.",
-      ],
+    ],
     skills: ["Python", "NLP", "RLHF", "Prompt Engineering", "LLM Evaluation", "Data Annotation", "AI QA", "Meta AI Tooling", "Ollama", "Claude"],
   },
   {
@@ -80,10 +90,11 @@ const experiences = [
   },
 ];
 
-const freelancePlatforms = [
+const freelancePlatforms: Experience[] = [
   {
     title: "Senior AI & Software Evaluation Contractor",
     company: "Alignerr",
+    domain: "Project-Based AI & Software Evaluation",
     location: "Remote, Canada",
     duration: "Apr 2026 – Present",
     highlights: [
@@ -96,6 +107,7 @@ const freelancePlatforms = [
   {
     title: "AI Trainer",
     company: "micro1",
+    domain: "Project-Based AI Evaluation",
     location: "Remote, Canada",
     duration: "Feb 2026 – Aug 2026",
     highlights: [
@@ -108,6 +120,7 @@ const freelancePlatforms = [
   {
     title: "Software Engineer-AI Training",
     company: "Outlier.ai",
+    domain: "Generative AI & RLHF Platform",
     location: "Remote, Canada",
     duration: "Nov 2024 – Aug 2025",
     highlights: [
@@ -118,16 +131,24 @@ const freelancePlatforms = [
     skills: ["Python", "RLHF", "Prompt Engineering", "LLM Evaluation", "RAG", "NLP", "AI QA", "Model Validation", "Claude", "Ollama"],
   },
   {
-    title: "Mindrift",
-    status: "Project-based contributor network",
-    highlights: ["Available when matched to AI assessment work", "Prompt and response quality review", "Domain-specific model evaluation"],
+    title: "AI Evaluation Contributor",
+    company: "Mindrift",
+    domain: "Project-based contributor network",
+    location: "Remote, Canada",
+    duration: "Aug 2026 – Present",
+    highlights: [
+      "Available when matched to AI assessment work",
+      "Prompt and response quality review",
+      "Domain-specific model evaluation",
+    ],
     skills: ["AI Assessment", "Prompt Review", "Model Evaluation"],
   },
 ];
 
-const ExperienceCard = ({ experience, index }: { experience: typeof experiences[number]; index: number }) => {
+const ExperienceCard = ({ experience, index }: { experience: Experience; index: number }) => {
   const [expanded, setExpanded] = useState(false);
   const visibleHighlights = expanded ? experience.highlights : experience.highlights.slice(0, 3);
+
   return (
     <div className={`relative flex items-center ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}>
       <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-lg z-10" />
@@ -151,9 +172,19 @@ const ExperienceCard = ({ experience, index }: { experience: typeof experiences[
   );
 };
 
+const ExperienceTimeline = ({ items }: { items: Experience[] }) => (
+  <div className="relative max-w-6xl mx-auto">
+    <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-primary/40" />
+    <div className="space-y-12">
+      {items.map((experience, index) => <ExperienceCard key={`${experience.company}-${experience.duration}`} experience={experience} index={index} />)}
+    </div>
+  </div>
+);
+
 const ExperienceSection = () => {
   const [showAll, setShowAll] = useState(false);
   const visibleExperiences = showAll ? experiences : experiences.slice(0, 2);
+
   return (
     <section id="experience" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -168,24 +199,11 @@ const ExperienceSection = () => {
             <TabsTrigger value="freelancing"><Users className="w-4 h-4 mr-2" />Freelancing</TabsTrigger>
           </TabsList>
           <TabsContent value="professional">
-            <div className="relative max-w-6xl mx-auto">
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-primary/40" />
-              <div className="space-y-12">{visibleExperiences.map((experience, index) => <ExperienceCard key={`${experience.company}-${experience.duration}`} experience={experience} index={index} />)}</div>
-            </div>
+            <ExperienceTimeline items={visibleExperiences} />
             <div className="text-center mt-10"><Button variant="outline" onClick={() => setShowAll(!showAll)}>{showAll ? "Show Latest Only" : "View More Experience"}</Button></div>
           </TabsContent>
           <TabsContent value="freelancing">
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {freelancePlatforms.map((platform) => (
-                <Card key={platform.title} className="bg-card/80 border-border/60 shadow-card hover-lift transition-smooth">
-                  <CardHeader><CardTitle>{platform.title}</CardTitle><p className="text-primary font-medium">{platform.status}</p></CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 mb-5">{platform.highlights.map((item) => <li key={item} className="text-sm text-muted-foreground flex gap-2"><span className="text-primary">•</span>{item}</li>)}</ul>
-                    <div className="flex flex-wrap gap-2">{platform.skills.map((skill) => <Badge key={skill} variant="outline">{skill}</Badge>)}</div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <ExperienceTimeline items={freelancePlatforms} />
           </TabsContent>
         </Tabs>
       </div>
