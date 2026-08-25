@@ -22,11 +22,11 @@ const AboutSection = () => {
           <Card className="mb-12 bg-card border shadow-card transition-smooth hover-lift">
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-foreground">
-                Senior Software Engineer with <strong className="text-primary">5+ years of experience</strong> building cloud-native backend platforms, 
-                distributed systems and production-oriented AI applications across Financial Services, Travel Technology, Aviation and Generative AI. 
-                Specialized in Python, FastAPI, AWS, Docker, Kubernetes, CI/CD, and scalable software architecture, with experience across LLM evaluation, 
-                RAG, agentic AI workflows, prompt engineering, data engineering and AI reliability. Strong background delivering reusable enterprise backend 
-                services and cloud-native platforms with an emphasis on scalability, testing, security and production readiness.
+                Senior Software Engineer with <strong className="text-primary">5+ years of combined experience</strong> across backend and platform engineering, 
+                AI evaluation, and project-based AI work. Specialized in Python, FastAPI, AWS, Docker, Kubernetes, CI/CD, distributed systems, and scalable software 
+                architecture, with recent experience across LLM evaluation, RAG, agentic workflows, prompt engineering, data engineering, and AI reliability. Strong 
+                background delivering reusable enterprise backend services and cloud-native platforms with an emphasis on scalability, testing, security, and production 
+                readiness.
               </p>
             </CardContent>
           </Card>
